@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUXE — Premium Fashion</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <!-- Google Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION BAR ─── -->
+  <nav class="navbar">
+    <div class="nav-logo">LUXE</div>
+    <ul class="nav-links">
+      <li><a href="#men">Men</a></li>
+      <li><a href="#women">Women</a></li>
+      <li><a href="#shoes">Shoes</a></li>
+      <li><a href="#accessories">Accessories</a></li>
+      <li><a href="/admin">Admin</a></li>
+    </ul>
+    <div class="nav-actions">
+      <!-- Login Button -->
+      <button class="btn-nav" id="loginBtn">Login</button>
+      <!-- Cart Button -->
+      <button class="btn-nav" id="cartBtn">
+        Cart (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── LOGIN / REGISTER POPUP MODAL ─── -->
+  <div class="modal-overlay" id="loginOverlay">
+    <div class="modal">
+      <button class="modal-close" id="closeLogin">&times;</button>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</button>
+        <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Create Account</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" />
+        </div>
+        <button class="btn-primary" id="submitLogin">Sign In</button>
+      </div>
+
+      <!-- REGISTER FORM -->
+      <div id="registerForm" style="display:none;">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="regName" placeholder="Jane Doe" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="regPassword" placeholder="Min. 6 characters" />
+        </div>
+        <button class="btn-primary" id="submitRegister">Create Account</button>
+      </div>
+
+      <p class="modal-message" id="loginMessage"></p>
+    </div>
+  </div>
+
+  <!-- ─── CART POPUP MODAL ─── -->
+  <div class="modal-overlay" id="cartOverlay">
+    <div class="modal modal-wide">
+      <button class="modal-close" id="closeCart">&times;</button>
+      <h2 class="modal-title">Your Cart</h2>
+      <!-- Cart items will be injected here by JS -->
+      <div id="cartItems"></div>
+      <div class="cart-total">
+        Total: ₹<span id="cartTotal">0</span>
+      </div>
+      <button class="btn-primary" id="checkoutBtn">Checkout</button>
+    </div>
+  </div>
+
+  <!-- ─── MAIN CONTENT ─── -->
+  <main>
+
+    <!-- ── MEN SECTION ── -->
+    <section id="men">
+      <!-- Static banner image (replace src with your image path) -->
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=1400&q=80" alt="Men's Collection" />
+        <div class="banner-text">
+          <span>New Season</span>
+          <h1>Men's Collection</h1>
+        </div>
+      </div>
+      <!-- Products will be dynamically injected below -->
+      <div class="products-grid" id="men-products"></div>
+    </section>
+
+    <!-- ── WOMEN SECTION ── -->
+    <section id="women">
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1400&q=80" alt="Women's Collection" />
+        <div class="banner-text">
+          <span>Curated Styles</span>
+          <h1>Women's Collection</h1>
+        </div>
+      </div>
+      <div class="products-grid" id="women-products"></div>
+    </section>
+
+    <!-- ── SHOES SECTION ── -->
+    <section id="shoes">
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1400&q=80" alt="Shoes Collection" />
+        <div class="banner-text">
+          <span>Step Forward</span>
+          <h1>Footwear</h1>
+        </div>
+      </div>
+      <div class="products-grid" id="shoes-products"></div>
+    </section>
+
+    <!-- ── ACCESSORIES SECTION ── -->
+    <section id="accessories">
+      <div class="banner">
+        <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=1400&q=80" alt="Accessories Collection" />
+        <div class="banner-text">
+          <span>The Details</span>
+          <h1>Accessories</h1>
+        </div>
+      </div>
+      <div class="products-grid" id="accessories-products"></div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <p>&copy; 2025 LUXE. All rights reserved.</p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
